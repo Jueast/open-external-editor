@@ -99,7 +99,9 @@ func get_text_edit():
             if godot_version["minor"] == 0:
                 return editor.get_child(1)
             else:
-                return editor.get_child(0).get_child(0)
+                for childy in editor.get_child(0).get_children():
+                    if childy.name == "TextEdit":
+                        return childy
         i += 1
 
 func parse_exec_flags(flags):
